@@ -43,7 +43,7 @@ import com.therouter.compose.compose
 import com.therouter.router.Autowired
 import com.therouter.router.Route
 
-@Route(path = com.example.reply.PathIndex.MAIN_PAGE, description = "主页")
+@Route(path = PathIndex.MAIN_PAGE, description = "主页")
 @Composable
 fun ReplyInboxScreen(
     contentType: ReplyContentType,

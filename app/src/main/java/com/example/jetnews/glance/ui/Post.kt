@@ -72,6 +72,7 @@ private fun openPostDetails(context: Context, post: Post): Action {
 @Composable
 fun Post(post: Post, bookmarks: Set<String>, onToggleBookmark: (String) -> Unit, modifier: GlanceModifier, postLayout: PostLayout) {
     when (postLayout) {
+        // 可以通过 TheRouter.build().compose() 获取一个 ComposeUI
         PostLayout.HORIZONTAL_SMALL -> TheRouter.build(HORIZONTAL_POST)
             .withObject("post", post)
             .withObject("bookmarks", bookmarks)
@@ -79,6 +80,7 @@ fun Post(post: Post, bookmarks: Set<String>, onToggleBookmark: (String) -> Unit,
             .withObject("modifier", modifier)
             .compose()
 
+        // 可以通过 TheRouter.build().compose() 获取一个 ComposeUI
         PostLayout.HORIZONTAL_LARGE -> TheRouter.build(HORIZONTAL_POST)
             .withObject("post", post)
             .withObject("bookmarks", bookmarks)
@@ -87,6 +89,7 @@ fun Post(post: Post, bookmarks: Set<String>, onToggleBookmark: (String) -> Unit,
             .withBoolean("showImageThumbnail", false)
             .compose()
 
+        // 可以通过 TheRouter.build().compose() 获取一个 ComposeUI
         PostLayout.VERTICAL -> TheRouter.build(VERTICAL_POST)
             .withObject("post", post)
             .withObject("bookmarks", bookmarks)
@@ -96,6 +99,7 @@ fun Post(post: Post, bookmarks: Set<String>, onToggleBookmark: (String) -> Unit,
     }
 }
 
+// 可以通过 @Route 注解定义一个 ComposeUI
 @Route(path = HORIZONTAL_POST)
 @Composable
 fun HorizontalPost(
@@ -139,6 +143,7 @@ fun HorizontalPost(
     }
 }
 
+// 可以通过 @Route 注解定义一个 ComposeUI
 @Route(path = VERTICAL_POST)
 @Composable
 fun VerticalPost(post: Post, bookmarks: Set<String>, onToggleBookmark: (String) -> Unit, modifier: GlanceModifier) {

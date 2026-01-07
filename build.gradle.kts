@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-buildscript{
-    dependencies {
-        classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.9.20")
-    }
-}
 plugins {
     alias(libs.plugins.gradle.versions)
     alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.compose) apply false
     alias(libs.plugins.spotless) apply false
-    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.therouter.classpath)  apply false
 }
 
 apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")

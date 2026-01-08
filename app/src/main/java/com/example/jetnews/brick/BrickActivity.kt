@@ -19,15 +19,19 @@ package com.example.jetnews.brick
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetnews.PathIndex.BRICK
+import com.example.jetnews.PathIndex.HOME_COMPOSE
+import com.example.jetnews.PathIndex.MAIN_COMPOSE
 import com.example.jetnews.R
 import com.therouter.router.Route
 
 @Route(path = BRICK)
-class BrickActivity : ComponentActivity() {
+class BrickActivity : FragmentActivity() {
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +39,17 @@ class BrickActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
+        val demoData = ArrayList<String>()
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+        demoData.add(MAIN_COMPOSE)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MyAdapter(this)
+        recyclerView.adapter = MyAdapter(this, demoData)
     }
 }

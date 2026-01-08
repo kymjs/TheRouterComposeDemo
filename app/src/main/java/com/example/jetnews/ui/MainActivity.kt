@@ -24,7 +24,7 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import com.example.jetnews.JetnewsApplication
 import com.example.jetnews.PathIndex.HOME
-import com.example.jetnews.PathIndex.HOME_COMPOSE
+import com.example.jetnews.PathIndex.MAIN_COMPOSE
 import com.therouter.compose.compose
 import com.therouter.TheRouter
 import com.therouter.router.Route
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
         val appContainer = (application as JetnewsApplication).container
         setContent {
             val widthSizeClass = calculateWindowSizeClass(this).widthSizeClass
-            TheRouter.build(HOME_COMPOSE)
+            TheRouter.build(MAIN_COMPOSE)
                 .withObject("appContainer", appContainer)
                 .withObject("widthSizeClass", widthSizeClass)
                 .compose()

@@ -97,6 +97,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.jetnews.PathIndex.BRICK
 import com.example.jetnews.R
 import com.example.jetnews.data.Result
 import com.example.jetnews.data.posts.impl.BlockingFakePostsRepository
@@ -111,6 +112,7 @@ import com.example.jetnews.ui.utils.BookmarkButton
 import com.example.jetnews.ui.utils.FavoriteButton
 import com.example.jetnews.ui.utils.ShareButton
 import com.example.jetnews.ui.utils.TextSettingsButton
+import com.therouter.TheRouter
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
@@ -697,11 +699,12 @@ private fun HomeTopAppBar(
         },
         actions = {
             IconButton(onClick = {
-                Toast.makeText(
-                    context,
-                    "Search is not yet implemented in this configuration",
-                    Toast.LENGTH_LONG,
-                ).show()
+                TheRouter.build(BRICK).navigation()
+//                Toast.makeText(
+//                    context,
+//                    "Search is not yet implemented in this configuration",
+//                    Toast.LENGTH_LONG,
+//                ).show()
             }) {
                 Icon(
                     painter = painterResource(R.drawable.ic_search),

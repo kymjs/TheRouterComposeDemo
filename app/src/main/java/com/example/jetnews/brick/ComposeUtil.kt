@@ -17,6 +17,7 @@
 package com.example.jetnews.brick
 
 import android.app.Activity
+import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionContext
@@ -30,28 +31,23 @@ import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.findViewTreeSavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
+import com.example.jetnews.R
 
 public fun makeView(
     activity: Activity,
+    width: Int = activity.window.decorView.findViewById<ViewGroup>(android.R.id.content).getChildAt(0).width,
+    height: Int = activity.window.decorView.findViewById<ViewGroup>(android.R.id.content).getChildAt(0).height,
     parent: CompositionContext? = null,
     content: @Composable () -> Unit,
-): ComposeView {
-    val existingComposeView =
-        activity.window.decorView.findViewById<ViewGroup>(android.R.id.content).getChildAt(0) as? ComposeView
-
-    return if (existingComposeView != null) {
-        with(existingComposeView) {
-            setParentCompositionContext(parent)
-            setContent(content)
-        }
-        existingComposeView
-    } else {
-        ComposeView(activity).apply {
-            setParentCompositionContext(parent)
-            setContent(content)
-            setOwners(activity)
-        }
+): ViewGroup {
+    val group = View.inflate(activity, R.layout.item_compose_container, null) as ViewGroup
+    val composeView = ComposeView(activity).apply {
+        setParentCompositionContext(parent)
+        setContent(content)
+        setOwners(activity)
     }
+    group.addView(composeView, ViewGroup.LayoutParams(width, height))
+    return group
 }
 
 /**

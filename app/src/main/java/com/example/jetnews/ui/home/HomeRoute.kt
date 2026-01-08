@@ -25,10 +25,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.jetnews.PathIndex.HOME_COMPOSE
 import com.example.jetnews.ui.article.ArticleScreen
 import com.example.jetnews.ui.home.HomeScreenType.ArticleDetails
 import com.example.jetnews.ui.home.HomeScreenType.Feed
 import com.example.jetnews.ui.home.HomeScreenType.FeedWithArticleDetails
+import com.therouter.router.Route
 
 /**
  * Displays the Home route.
@@ -40,6 +42,7 @@ import com.example.jetnews.ui.home.HomeScreenType.FeedWithArticleDetails
  * @param openDrawer (event) request opening the app drawer
  * @param snackbarHostState (state) state for the [Scaffold] component on this screen
  */
+@Route(path = HOME_COMPOSE)
 @Composable
 fun HomeRoute(
     homeViewModel: HomeViewModel,

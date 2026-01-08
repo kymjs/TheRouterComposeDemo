@@ -10,6 +10,9 @@ object PathIndex {
     // compose
     const val HORIZONTAL_POST: String = "https://kymjs.com/shell_screen/horizontal_post"
     const val VERTICAL_POST: String = "https://kymjs.com/shell_screen/vertical_post"
-    const val HOME_COMPOSE: String = "https://kymjs.com/shell_screen/home_compose"
+
+    const val MAIN_COMPOSE: String = "https://kymjs.com/shell_screen/main_compose"
+
+    const val HOME_COMPOSE: String = "https://kymjs.com/compose/home_compose"
 
 }

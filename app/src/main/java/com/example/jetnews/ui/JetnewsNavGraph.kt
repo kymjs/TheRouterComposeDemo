@@ -24,12 +24,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
+import com.example.jetnews.PathIndex.HOME_COMPOSE
 import com.example.jetnews.PathIndex.JETNEWS_APP_URI
 import com.example.jetnews.data.AppContainer
-import com.example.jetnews.ui.home.HomeRoute
 import com.example.jetnews.ui.home.HomeViewModel
 import com.example.jetnews.ui.interests.InterestsRoute
 import com.example.jetnews.ui.interests.InterestsViewModel
+import com.therouter.TheRouter
+import com.therouter.compose.compose
 
 const val POST_ID = "postId"
 
@@ -62,11 +64,11 @@ fun JetnewsNavGraph(
                     preSelectedPostId = navBackStackEntry.arguments?.getString(POST_ID),
                 ),
             )
-            HomeRoute(
-                homeViewModel = homeViewModel,
-                isExpandedScreen = isExpandedScreen,
-                openDrawer = openDrawer,
-            )
+            TheRouter.build(HOME_COMPOSE)
+                .withObject("homeViewModel", homeViewModel)
+                .withObject("isExpandedScreen", isExpandedScreen)
+                .withObject("openDrawer", openDrawer)
+                .compose()
         }
         composable(JetnewsDestinations.INTERESTS_ROUTE) {
             val interestsViewModel: InterestsViewModel = viewModel(

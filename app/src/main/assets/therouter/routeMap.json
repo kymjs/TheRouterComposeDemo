@@ -5,5 +5,12 @@
     "action": "",
     "description": "",
     "params": {}
+  },
+  {
+    "path": "https://kymjs.com/shell_screen/brick",
+    "className": "com.example.jetnews.brick.BrickActivity",
+    "action": "",
+    "description": "",
+    "params": {}
   }
 ]

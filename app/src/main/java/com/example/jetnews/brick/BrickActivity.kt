@@ -14,36 +14,29 @@
  * limitations under the License.
  */
 
-package com.example.jetnews.ui
+package com.example.jetnews.brick
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import com.example.jetnews.JetnewsApplication
-import com.example.jetnews.PathIndex.HOME
-import com.example.jetnews.PathIndex.HOME_COMPOSE
-import com.therouter.compose.compose
-import com.therouter.TheRouter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.jetnews.PathIndex.BRICK
+import com.example.jetnews.R
 import com.therouter.router.Route
 
-@Route(path = HOME)
-class MainActivity : ComponentActivity() {
+@Route(path = BRICK)
+class BrickActivity : ComponentActivity() {
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
 
-        val appContainer = (application as JetnewsApplication).container
-        setContent {
-            val widthSizeClass = calculateWindowSizeClass(this).widthSizeClass
-            TheRouter.build(HOME_COMPOSE)
-                .withObject("appContainer", appContainer)
-                .withObject("widthSizeClass", widthSizeClass)
-                .compose()
-        }
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = MyAdapter(this)
     }
 }

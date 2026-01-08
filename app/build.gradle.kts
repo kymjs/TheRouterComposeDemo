@@ -90,6 +90,7 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
 
     implementation(libs.androidx.compose.animation)
     implementation(libs.androidx.compose.foundation.layout)

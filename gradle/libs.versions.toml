@@ -4,7 +4,8 @@
 #####
 [versions]
 therouter="1.3.1-rc3"
-theroutersnapshot="1.3.1-beta4-SNAPSHOT"
+therouterapt="1.3.1-beta4-SNAPSHOT"
+theroutercompose="1.3.1-beta4-SNAPSHOT"
 accompanist = "0.37.3"
 android-material3 = "1.14.0-alpha03"
 androidGradlePlugin = "8.12.0-alpha02"
@@ -161,8 +162,8 @@ roborazzi-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule"
 rometools-modules = { module = "com.rometools:rome-modules", version.ref = "rome" }
 rometools-rome = { module = "com.rometools:rome", version.ref = "rome" }
 therouter-router = { module = "cn.therouter:router", version.ref = "therouter" }
-therouter-compose = { module = "cn.therouter:compose", version.ref = "therouter" }
-therouter-apt = { module = "cn.therouter:apt", version.ref = "theroutersnapshot" }
+therouter-compose = { module = "cn.therouter:compose", version.ref = "theroutercompose" }
+therouter-apt = { module = "cn.therouter:apt", version.ref = "therouterapt" }
 
 [plugins]
 therouter-classpath = { id = "cn.therouter", version.ref = "therouter" }

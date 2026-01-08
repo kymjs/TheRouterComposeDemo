@@ -3,9 +3,9 @@
 # Do not add a dependency to an individual sample, edit the global version instead.
 #####
 [versions]
-therouter="1.3.1-rc3"
-therouterapt="1.3.1-beta4-SNAPSHOT"
-theroutercompose="1.3.1-beta4-SNAPSHOT"
+therouter="1.3.1-rc4"
+therouterapt="1.3.1-rc4"
+theroutercompose="1.3.1-rc4"
 accompanist = "0.37.3"
 android-material3 = "1.14.0-alpha03"
 androidGradlePlugin = "8.12.0-alpha02"

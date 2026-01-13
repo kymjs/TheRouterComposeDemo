@@ -16,28 +16,36 @@
 
 package com.example.jetnews.ui
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.jetnews.JetnewsApplication
 import com.example.jetnews.PathIndex.MAIN_COMPOSE
-import com.example.jetnews.data.AppContainer
 import com.example.jetnews.ui.components.AppNavRail
 import com.example.jetnews.ui.theme.JetnewsTheme
+import com.therouter.getApplicationContext
 import com.therouter.router.Route
 import kotlinx.coroutines.launch
 
+@SuppressLint("ContextCastToActivity")
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Route(path = MAIN_COMPOSE)
 @Composable
-fun JetnewsApp(appContainer: AppContainer, widthSizeClass: WindowWidthSizeClass) {
+fun JetnewsApp() {
     JetnewsTheme {
         val navController = rememberNavController()
         val navigationActions = remember(navController) {
@@ -50,6 +58,7 @@ fun JetnewsApp(appContainer: AppContainer, widthSizeClass: WindowWidthSizeClass)
         val currentRoute =
             navBackStackEntry?.destination?.route ?: JetnewsDestinations.HOME_ROUTE
 
+        val widthSizeClass = calculateWindowSizeClass(LocalContext.current as Activity).widthSizeClass
         val isExpandedScreen = widthSizeClass == WindowWidthSizeClass.Expanded
         val sizeAwareDrawerState = rememberSizeAwareDrawerState(isExpandedScreen)
 
@@ -76,7 +85,7 @@ fun JetnewsApp(appContainer: AppContainer, widthSizeClass: WindowWidthSizeClass)
                     )
                 }
                 JetnewsNavGraph(
-                    appContainer = appContainer,
+                    appContainer = (getApplicationContext() as JetnewsApplication).container,
                     isExpandedScreen = isExpandedScreen,
                     navController = navController,
                     openDrawer = { coroutineScope.launch { sizeAwareDrawerState.open() } },

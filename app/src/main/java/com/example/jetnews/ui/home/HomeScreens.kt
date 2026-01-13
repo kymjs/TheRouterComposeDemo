@@ -98,6 +98,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.jetnews.PathIndex.BRICK
+import com.example.jetnews.PathIndex.TEXT_COMPOSE
 import com.example.jetnews.R
 import com.example.jetnews.data.Result
 import com.example.jetnews.data.posts.impl.BlockingFakePostsRepository
@@ -113,6 +114,7 @@ import com.example.jetnews.ui.utils.FavoriteButton
 import com.example.jetnews.ui.utils.ShareButton
 import com.example.jetnews.ui.utils.TextSettingsButton
 import com.therouter.TheRouter
+import com.therouter.compose.compose
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
@@ -501,6 +503,7 @@ private fun FullScreenLoading() {
  */
 @Composable
 private fun PostListTopSection(post: Post, navigateToArticle: (String) -> Unit) {
+    TheRouter.build(TEXT_COMPOSE).compose()
     Text(
         modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp),
         text = stringResource(id = R.string.home_top_section_title),

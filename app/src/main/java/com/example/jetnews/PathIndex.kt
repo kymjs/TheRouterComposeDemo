@@ -15,4 +15,6 @@ object PathIndex {
 
     const val HOME_COMPOSE: String = "https://kymjs.com/compose/home_compose"
 
+    const val TEXT_COMPOSE: String = "https://kymjs.com/compose/test_text"
+
 }

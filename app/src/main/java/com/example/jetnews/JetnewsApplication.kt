@@ -34,6 +34,7 @@ class JetnewsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        com.therouter.setContext(this)
         container = AppContainerImpl(this)
     }
 }

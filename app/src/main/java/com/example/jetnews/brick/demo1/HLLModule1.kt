@@ -40,19 +40,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetnews.PathIndex.TEST_COMPOSE1
 import com.example.jetnews.R
-import com.example.jetnews.data.Result
-import com.example.jetnews.data.posts.impl.BlockingFakePostsRepository
-import com.example.jetnews.data.posts.impl.posts
-import com.example.jetnews.model.PostsFeed
 import com.therouter.brick.annotation.DataProvider
-import com.therouter.executeInMainThread
-import com.therouter.getApplicationContext
 import com.therouter.router.Navigator
 import com.therouter.router.Route
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 // 车辆数据类

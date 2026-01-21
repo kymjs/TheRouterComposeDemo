@@ -69,107 +69,67 @@ data class VehicleInfo(
     val dimensions: VehicleDimensions,
 )
 
-//@DataProvider(path = TEST_COMPOSE1)
-//fun makeData1(navigator: Navigator): List<VehicleInfo> {
-//    return listOf(
-//        VehicleInfo(
-//            name = "小面",
-//            description = "小面包车",
-//            capacity = "可装1-2人物品,及1-2件家具家电",
-//            dimensions = VehicleDimensions("1.3米", "1.8米", "1.1米"),
-//        ),
-//        VehicleInfo(
-//            name = "中面",
-//            description = "中面包车",
-//            capacity = "可装2-3人物品,及2-3件家具家电",
-//            dimensions = VehicleDimensions("1.5米", "2.0米", "1.3米"),
-//        ),
-//        VehicleInfo(
-//            name = "依维柯",
-//            description = "依维柯",
-//            capacity = "可装3-4人物品,及3-4件家具家电",
-//            dimensions = VehicleDimensions("1.8米", "2.5米", "1.5米"),
-//        ),
-//        VehicleInfo(
-//            name = "中货",
-//            description = "中型货车",
-//            capacity = "可装4-5人物品,及4-5件家具家电",
-//            dimensions = VehicleDimensions("2.0米", "3.0米", "1.8米"),
-//        ),
-//    )
-//}
-//
-///**
-// * 测试优先级更高的数据源
-// */
-//@DataProvider(path = TEST_COMPOSE1, priority = 5)
-//fun makeData2(navigator: Navigator): List<VehicleInfo> {
-//    return listOf(
-//        VehicleInfo(
-//            name = "小面2",
-//            description = "小面包车2",
-//            capacity = "可装1-2人物品,及1-2件家具家电",
-//            dimensions = VehicleDimensions("1.3米", "1.8米", "1.1米"),
-//        ),
-//        VehicleInfo(
-//            name = "中面2",
-//            description = "中面包车2",
-//            capacity = "可装2-3人物品,及2-3件家具家电",
-//            dimensions = VehicleDimensions("1.5米", "2.0米", "1.3米"),
-//        ),
-//        VehicleInfo(
-//            name = "依维柯2",
-//            description = "依维柯2",
-//            capacity = "可装3-4人物品,及3-4件家具家电",
-//            dimensions = VehicleDimensions("1.8米", "2.5米", "1.5米"),
-//        ),
-//        VehicleInfo(
-//            name = "中货2",
-//            description = "中型货车2",
-//            capacity = "可装4-5人物品,及4-5件家具家电",
-//            dimensions = VehicleDimensions("2.0米", "3.0米", "1.8米"),
-//        ),
-//    )
-//}
+@DataProvider(path = TEST_COMPOSE1)
+fun makeData1(navigator: Navigator): List<VehicleInfo> {
+    return listOf(
+        VehicleInfo(
+            name = "小面",
+            description = "小面包车",
+            capacity = "可装1-2人物品,及1-2件家具家电",
+            dimensions = VehicleDimensions("1.3米", "1.8米", "1.1米"),
+        ),
+        VehicleInfo(
+            name = "中面",
+            description = "中面包车",
+            capacity = "可装2-3人物品,及2-3件家具家电",
+            dimensions = VehicleDimensions("1.5米", "2.0米", "1.3米"),
+        ),
+        VehicleInfo(
+            name = "依维柯",
+            description = "依维柯",
+            capacity = "可装3-4人物品,及3-4件家具家电",
+            dimensions = VehicleDimensions("1.8米", "2.5米", "1.5米"),
+        ),
+        VehicleInfo(
+            name = "中货",
+            description = "中型货车",
+            capacity = "可装4-5人物品,及4-5件家具家电",
+            dimensions = VehicleDimensions("2.0米", "3.0米", "1.8米"),
+        ),
+    )
+}
 
 /**
- * 测试异步的数据源
+ * 测试优先级更高的数据源
  */
-@Composable
-@DataProvider(path = TEST_COMPOSE1, async = true, priority = 3)
-fun makeData3(navigator: Navigator, onFinish: @Composable ((Any) -> Unit)) {
-    suspend fun getData(): List<VehicleInfo> {
-        delay(2000)
-        return listOf(
-            VehicleInfo(
-                name = "小面3",
-                description = "小面包车3",
-                capacity = "可装1-2人物品,及1-2件家具家电",
-                dimensions = VehicleDimensions("1.3米", "1.8米", "1.1米"),
-            ),
-            VehicleInfo(
-                name = "中面3",
-                description = "中面包车3",
-                capacity = "可装2-3人物品,及2-3件家具家电",
-                dimensions = VehicleDimensions("1.5米", "2.0米", "1.3米"),
-            ),
-            VehicleInfo(
-                name = "依维柯3",
-                description = "依维柯3",
-                capacity = "可装3-4人物品,及3-4件家具家电",
-                dimensions = VehicleDimensions("1.8米", "2.5米", "1.5米"),
-            ),
-            VehicleInfo(
-                name = "中货3",
-                description = "中型货车2",
-                capacity = "可装4-5人物品,及4-5件家具家电",
-                dimensions = VehicleDimensions("2.0米", "3.0米", "1.8米"),
-            ),
-        )
-    }
-
-    val postsFeed = runBlocking { getData() }
-    onFinish(postsFeed)
+@DataProvider(path = TEST_COMPOSE1, priority = 5)
+fun makeData2(navigator: Navigator): List<VehicleInfo> {
+    return listOf(
+        VehicleInfo(
+            name = "小面2",
+            description = "小面包车2",
+            capacity = "可装1-2人物品,及1-2件家具家电",
+            dimensions = VehicleDimensions("1.3米", "1.8米", "1.1米"),
+        ),
+        VehicleInfo(
+            name = "中面2",
+            description = "中面包车2",
+            capacity = "可装2-3人物品,及2-3件家具家电",
+            dimensions = VehicleDimensions("1.5米", "2.0米", "1.3米"),
+        ),
+        VehicleInfo(
+            name = "依维柯2",
+            description = "依维柯2",
+            capacity = "可装3-4人物品,及3-4件家具家电",
+            dimensions = VehicleDimensions("1.8米", "2.5米", "1.5米"),
+        ),
+        VehicleInfo(
+            name = "中货2",
+            description = "中型货车2",
+            capacity = "可装4-5人物品,及4-5件家具家电",
+            dimensions = VehicleDimensions("2.0米", "3.0米", "1.8米"),
+        ),
+    )
 }
 
 @Route(path = TEST_COMPOSE1)
